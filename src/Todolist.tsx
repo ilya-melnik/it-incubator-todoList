@@ -27,7 +27,7 @@ export function Todolist(props: PropsType) {
         props.addTask(title)
         setTitle("")
     }
-
+debugger
 
     return <div>
         <h3>{props.title}</h3>
