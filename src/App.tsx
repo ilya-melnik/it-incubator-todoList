@@ -22,7 +22,7 @@ function App() {
     }
 
     function removeTask(id: string) {
-        let tasks1 = tasks.filter(t => t.id != id)
+        let tasks1 = tasks.filter(t => t.id !== id)
         setTask(tasks1)
     }
 
@@ -42,6 +42,14 @@ function App() {
     }
 
 
+
+    function changeStatus ( taskId: string, isDone: boolean) {
+            let task = tasks.find(t => t.id === taskId )
+        if(task) {
+            task.isDone = isDone
+        }
+    setTask([...tasks])
+    }
     return (
         <div className="App">
             <Todolist title="What to learn"
@@ -49,6 +57,7 @@ function App() {
                       removeTask={removeTask}
                       changeFilter={changeFilter}
                       addTask={addTask}
+                      changeStatus={changeStatus}
 
             />
 
