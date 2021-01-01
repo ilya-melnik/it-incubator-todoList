@@ -14,6 +14,7 @@ type PropsType = {
     changeFilter: (value: FilterValueType) => void
     changeStatus: (taskId: string, isDone: boolean) => void
     addTask: (title: string) => void
+    filter: (FilterValueType)
 
 }
 
@@ -41,6 +42,7 @@ let [error, setError] = useState <string | null>(null)
     }
     const onCLickHandlerAll = () => {
         props.changeFilter("all")
+
     }
 
     const onCLickHandlerActive = () => {
@@ -79,11 +81,11 @@ let [error, setError] = useState <string | null>(null)
 
         </ul>
         <div>
-            <button onClick={onCLickHandlerAll}>All
+            <button className={ props.filter === "all"?"active-filter":"" }onClick={onCLickHandlerAll}>All
             </button>
-            <button onClick={onCLickHandlerActive}>Active
+            <button className={ props.filter === "active"?"active-filter":"" } onClick={onCLickHandlerActive}>Active
             </button>
-            <button onClick={onCLickHandlerCompleted}>Completed
+            <button className={ props.filter === "completed"?"active-filter":"" } onClick={onCLickHandlerCompleted}>Completed
             </button>
         </div>
     </div>
