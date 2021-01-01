@@ -70,7 +70,7 @@ let [error, setError] = useState <string | null>(null)
                         props.changeStatus(t.id, newIsDoneValue)
                     }
                     return <li key={t.id}>
-                        <input className={t.isDone === true?"is-done": ""} type={"checkbox"} checked={t.isDone}
+                        <input className={t.isDone ?"is-done": ""} type={"checkbox"} checked={t.isDone}
                                onChange={onChangeHandler}/>
                         <span>{t.title}</span>
                         <button onClick={onCLickHandler}>x
