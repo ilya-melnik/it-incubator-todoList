@@ -30,9 +30,11 @@ let [error, setError] = useState <string | null>(null)
             setTitle("")
         } else {
             setError("Title is required")
+
         }
     }
     const onKeyPreesHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+        setError(null)
         if (e.key === "Enter") {
             addTask()
         }
