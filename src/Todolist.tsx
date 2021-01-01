@@ -70,7 +70,7 @@ let [error, setError] = useState <string | null>(null)
                         props.changeStatus(t.id, newIsDoneValue)
                     }
                     return <li key={t.id}>
-                        <input type={"checkbox"} checked={t.isDone}
+                        <input className={t.isDone === true?"is-done": ""} type={"checkbox"} checked={t.isDone}
                                onChange={onChangeHandler}/>
                         <span>{t.title}</span>
                         <button onClick={onCLickHandler}>x
@@ -85,7 +85,7 @@ let [error, setError] = useState <string | null>(null)
             </button>
             <button className={ props.filter === "active"?"active-filter":"" } onClick={onCLickHandlerActive}>Active
             </button>
-            <button className={ props.filter === "completed"?"active-filter":"" } onClick={onCLickHandlerCompleted}>Completed
+            <button className={ props.filter === "completed"?"active-filter" + "is-done":"" } onClick={onCLickHandlerCompleted}>Completed
             </button>
         </div>
     </div>
